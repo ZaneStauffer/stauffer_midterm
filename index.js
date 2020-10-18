@@ -1,12 +1,13 @@
 var express = require('express');
 var fetch = require('node-fetch');
 
+const port = process.env.port || 3000;
+
 var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-const port = process.env.port || 3000;
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res){
     fetch('https://xkcd.com/info.0.json')
         .then(res => res.json())
         .then(data => {
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
         });
 });
 
-app.get('/random', (req, res) => {
+app.get('/random', function(req, res){
     fetch('https://xkcd.com/info.0.json')
         .then(res => res.json())
         .then(data => {
