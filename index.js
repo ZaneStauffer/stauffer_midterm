@@ -1,9 +1,10 @@
 var express = require('express');
 var fetch = require('node-fetch');
 
+var app = express();
+
 const port = process.env.PORT || 3000;
 
-var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
@@ -31,5 +32,5 @@ app.get('/random', function(req, res){
 });
 
 app.listen(port, function(){
-    console.log("Opening.");
+    console.log(`Opening. Listening on ${port}`);
 });
