@@ -30,4 +30,6 @@ app.get('/random', function(req, res){
         });
 });
 
-app.listen(port, function(){});
+app.listen(port, function(){
+    console.log("Opening.");
+});
